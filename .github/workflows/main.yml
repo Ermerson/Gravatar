@@ -6,20 +6,19 @@ on:
       - main
 
 jobs:
-  build-and-deploy
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-  steps:
-    - uses: actions/checkout@main
+    steps:
+      - uses: actions/checkout@main
     
-    - name: Set up .NET Core
-      uses: actions/detup-dotnet@v1
-      with:
-        dotnet-version: '5.0.x'
+      - name: Set up .NET Core
+        uses: actions/detup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
 
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
 
-    - name: Test
-      run: dotnet test
+      - name: Test
+        run: dotnet test
  
